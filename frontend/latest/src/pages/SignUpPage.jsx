@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { MessageCircleHeart } from "lucide-react" // Correct icon import
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import {useMutation,useQueryClient} from "@tanstack/react-query"
 import {axiosInstance} from "../lib/axios.js"
 import { signup } from '../lib/api.js'
