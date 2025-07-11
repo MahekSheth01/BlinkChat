@@ -6,6 +6,7 @@ import { completeOnboarding } from "../lib/api";
 import {
   LoaderIcon,
   MapPinIcon,
+  MessageCircleHeart,
   ShipWheelIcon,
   ShuffleIcon,
 } from "lucide-react";
@@ -204,7 +205,7 @@ const OnboardingPage = () => {
             >
               {!isPending ? (
                 <>
-                  <ShipWheelIcon className="size-5 mr-2" />
+                  <MessageCircleHeart className="size-5 mr-2" />
                   Complete Onboarding
                 </>
               ) : (
