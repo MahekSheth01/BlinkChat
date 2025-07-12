@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import {useMutation,useQueryClient} from "@tanstack/react-query"
 import {axiosInstance} from "../lib/axios.js"
 import { signup } from '../lib/api.js'
+import useSignUp from '../hooks/useSignUp.js'
 const SignUpPage = () => {
   const [signupData, setSignupData] = useState({
     fullName: "",
@@ -11,17 +12,16 @@ const SignUpPage = () => {
     password: "",
   })
 
-  const queryClient=useQueryClient()
 
-  const {mutate:signupMutation,isPending,error}=useMutation({
-    mutationFn:signup,
-    onSuccess:()=>queryClient.invalidateQueries({queryKey:["authUser"]})
-  })
+
 
   const handleSignup = (e) => {
     e.preventDefault()
     signupMutation(signupData)
   }
+
+  const {isPending,error,signupMutation}=useSignUp()
+
 
   return (
     <div className="h-screen flex items-center justify-center p-4 sm:p-6 md:p-8" data-theme="valentine">
